@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 22px;
+        }
+
+        p {
+            text-align: center;
+            margin: 5px 0;
+        }
+        
+        textarea, input[type="submit"] {
+    width: 50%;
+    max-width: 100%;
+    margin: 0 auto; /* Center horizontally */
+    display: block; /* Ensure block-level display */
+}
+
+
+        input[type="submit"] {
+            text-align: center;
+            width: 15%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            text-align: center;
+            background-color: #0056b3;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ book[1] }}</h1>
+        <p><strong>Author:</strong> {{ book[2] }}</p>
+        <p><strong>Publication Year:</strong> {{ book[3] }}</p>
+        <p><strong>ISBN:</strong> {{ book[0] }}</p>
+        
+        <h2>Reviews</h2>
+        <p>{{ book[4] }}</p>  <!-- Display existing reviews -->
+        
+        <h2>Add Review</h2>
+        <form action="/save_review/{{ book[0] }}" method="post">
+            <textarea name="review" rows="4" placeholder="Enter your review"></textarea><br>
+            <input type="submit" value="Save Review">
+        </form>
+    </div>
+</body>
+</html>
